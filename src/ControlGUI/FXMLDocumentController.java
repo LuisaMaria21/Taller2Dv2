@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
@@ -26,12 +28,43 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Canvas lienzo;
     
+    @FXML
+    private Label labelContorno; 
+    
+    @FXML
+    private Label labelRelleno;
+    
+    @FXML
+    private ColorPicker colorContorno;
+    
+    @FXML
+    private ColorPicker colorRelleno; 
+    
+    @FXML
+    private ComboBox comboFigura; 
+    
+    
+    
+    
+    
+    
+    
     GraphicsContext g;
     FileChooser filechooser=new FileChooser();
     
     @FXML
-    private void File(ActionEvent event) {
+    private void file(ActionEvent event) {
 //        Window stage=
+    }
+    
+     @FXML
+    private void edit(ActionEvent event) {
+
+    }
+    
+     @FXML
+    private void help(ActionEvent event) {
+
     }
     
     @Override
