@@ -5,12 +5,17 @@
  */
 package Modelo;
 
+import java.awt.Color;
+
 /**
  *
  * @author andres_fel.acosta
  */
 public class FigurasGeometricas {
     private String nombreFigura;
+    private double grosorLinea; 
+    private Color colorLinea; 
+    
 
     /**
      * Get the value of nombreFigura
