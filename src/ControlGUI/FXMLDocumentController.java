@@ -7,25 +7,22 @@ package ControlGUI;
 
 import Modelo.ManejoArchivo;
 import Modelo.punto2D;
-import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
-import javafx.stage.Window;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -56,7 +53,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Label labelRelleno;
-    
+
     @FXML
     private Label labelTamaño;
 
@@ -65,8 +62,34 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private ColorPicker colorRelleno;
-
+    
     @FXML
+    private RadioButton estrella1;
+    
+    @FXML
+    private RadioButton estrella2;
+    
+    @FXML
+    private RadioButton hexa;
+    
+    @FXML
+    private RadioButton hepta;
+    
+    @FXML
+    private RadioButton octa;
+    
+    @FXML
+    private RadioButton deca;
+    
+    @FXML
+    private RadioButton contorno;
+    
+    @FXML
+    private RadioButton relleno;
+    
+    @FXML
+    private ToggleGroup tgFigura;
+
     private void obtenerCoordenadas(MouseEvent event) {
         coordenadaX = event.getX();
         coordenadaY = event.getY();
@@ -80,7 +103,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void file(ActionEvent event) {
 //       
-        String ruta= ManejoArchivo.direccion();
+        String ruta = ManejoArchivo.direccion();
         boolean t = ManejoArchivo.guardarArchivoXML(mapaEjemplo, ruta);
         if (t == true) {
             System.out.println("Guardo con exito");
@@ -101,49 +124,57 @@ public class FXMLDocumentController implements Initializable {
         JOptionPane.showMessageDialog(jFrame, "AYUDA \n"
                 + "1.Escoja la figura que quiere realizar \n"
                 + "2.Escoja el color de relleno de la figura \n"
-                + "3.De ser una figura con contorno, escoja el relleno del contorno \n"               
+                + "3.De ser una figura con contorno, escoja el relleno del contorno \n"
                 + "4.Haga clic en el lienzo en el lugar donde quiere que se dibuje la figura \n"
                 + "5.Haga clic en X para guardar, escoja su carpeta de preferencia \n"
-                + "6.Haga clic en X para recuperar un archivo guardado"); 
+                + "6.Haga clic en X para recuperar un archivo guardado");
 
     }
+    
+    private void estrella5puntas(){
+        
+    }
+    
+    private void estrella6puntas(){
+        
+    }
+    
+    private void hexagono(){
+        RadioButton hexa = (RadioButton) tgFigura.getSelectedToggle(); 
+        
+        x = new double[6];
+        y = new double[6];
 
-    @FXML
-    private void comboFigura(ActionEvent event) {
-        ObservableList<String> figuras = FXCollections.observableArrayList();
-        ComboBox comboFigura = new ComboBox();
-        comboFigura.getItems().addAll("Estrella 5 puntas", "Estrella 6 puntas",
-                "Hexagono", "Heptagono", "Octagono", "Decagono", "Pac-man",
-                "Trazo curva");
-        ComboBox<String> cbx = new ComboBox<>(figuras);
-
-//        String figura = (String) comboFigura.getValue();
-//        if (figura.equals("Estrella 5 puntas")) {
-//
-//        } else if (figura.equals("Estrella 6 puntas")) {
-//
-//        } else if (figura.equals("Hexagono")) {
-//            x = new double[6];
-//            y = new double[6];
-//
-//            listap = new LinkedList<>();
-//            x[0] = (coordenadaX + r);
-//            y[0] = coordenadaY;
-//            x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
-//            y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 6));
-//            x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 6));
-//            y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 6));
-//            x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 6));
-//            y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 6));
-//            x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 6));
-//            y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
-//            x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
-//            y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
-//            g.setStroke(Color.BLUE);
-//            g.setLineWidth(3);
-//            g.strokePolygon(x, y, 6);
-//        }
-
+        listap = new LinkedList<
+        >();
+        x[0] = (coordenadaX + r);
+        y[0] = coordenadaY;
+        x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
+        y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 6));
+        x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 6));
+        y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 6));
+        x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 6));
+        y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 6));
+        x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 6));
+        y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
+        x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
+        y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
+        g.setStroke(Color.BLUE);
+        g.setLineWidth(3);
+        g.strokePolygon(x, y, 6);   
+        
+    }
+    
+    private void heptagono(){
+        
+    }
+    
+    private void octagono(){
+        
+    }
+    
+    private void decagono(){
+        
     }
 
     @Override
@@ -156,6 +187,8 @@ public class FXMLDocumentController implements Initializable {
         mapaEjemplo = new HashMap<>();
         double w = lienzo.getWidth();
         double h = lienzo.getHeight();
+        
+        
     }
 
 }

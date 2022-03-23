@@ -17,15 +17,19 @@
       <ColorPicker fx:id="colorRelleno" layoutX="836.0" layoutY="85.0" />
       <Label fx:id="labelContorno" layoutX="681.0" layoutY="60.0" text="Color contorno:" />
       <Label fx:id="labelRelleno" layoutX="837.0" layoutY="59.0" text="Color relleno:" />
-      <RadioButton layoutX="249.0" layoutY="21.0" mnemonicParsing="false" text="Estrella 5 puntas " />
+      <RadioButton fx:id="estrella1" layoutX="249.0" layoutY="21.0" mnemonicParsing="false" text="Estrella 5 puntas ">
+         <toggleGroup>
+            <ToggleGroup fx:id="tgFigura" />
+         </toggleGroup>
+      </RadioButton>
       <Button layoutX="114.0" layoutY="17.0" onAction="#open" text="Recuperar" />
-      <RadioButton layoutX="249.0" layoutY="51.0" mnemonicParsing="false" text="Estrella 6 puntas " />
-      <RadioButton layoutX="392.0" layoutY="21.0" mnemonicParsing="false" text="Hexágono" />
-      <RadioButton layoutX="391.0" layoutY="51.0" mnemonicParsing="false" text="Heptágono" />
-      <RadioButton layoutX="505.0" layoutY="21.0" mnemonicParsing="false" text="Octágono" />
-      <RadioButton layoutX="504.0" layoutY="51.0" mnemonicParsing="false" text="Decágono" />
-      <RadioButton layoutX="681.0" layoutY="21.0" mnemonicParsing="false" text="Contorno" />
-      <RadioButton layoutX="837.0" layoutY="21.0" mnemonicParsing="false" text="Relleno" />
+      <RadioButton fx:id="estrella2" layoutX="249.0" layoutY="51.0" mnemonicParsing="false" text="Estrella 6 puntas " toggleGroup="$tgFigura" />
+      <RadioButton fx:id="hexa" layoutX="392.0" layoutY="21.0" mnemonicParsing="false" text="Hexágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="hepta" layoutX="391.0" layoutY="51.0" mnemonicParsing="false" text="Heptágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="octa" layoutX="505.0" layoutY="21.0" mnemonicParsing="false" text="Octágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="deca" layoutX="504.0" layoutY="51.0" mnemonicParsing="false" text="Decágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="contorno" layoutX="681.0" layoutY="21.0" mnemonicParsing="false" text="Contorno" />
+      <RadioButton fx:id="relleno" layoutX="837.0" layoutY="21.0" mnemonicParsing="false" text="Relleno" />
       <Slider layoutX="391.0" layoutY="99.0" />
     </children>
 </AnchorPane>
