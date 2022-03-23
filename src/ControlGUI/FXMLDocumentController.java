@@ -41,6 +41,9 @@ public class FXMLDocumentController implements Initializable {
     double[] x;
     double[] y;
     double r;
+    
+    int contadorH;
+    int contadorP; 
 
     LinkedList<punto2D> listap;
     HashMap<String, LinkedList<punto2D>> mapaEjemplo;
@@ -62,31 +65,31 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private ColorPicker colorRelleno;
-    
+
     @FXML
     private RadioButton estrella1;
-    
+
     @FXML
     private RadioButton estrella2;
-    
+
     @FXML
     private RadioButton hexa;
-    
+
     @FXML
     private RadioButton hepta;
-    
+
     @FXML
     private RadioButton octa;
-    
+
     @FXML
     private RadioButton deca;
-    
+
     @FXML
     private RadioButton contorno;
-    
+
     @FXML
     private RadioButton relleno;
-    
+
     @FXML
     private ToggleGroup tgFigura;
 
@@ -94,6 +97,10 @@ public class FXMLDocumentController implements Initializable {
         coordenadaX = event.getX();
         coordenadaY = event.getY();
 
+        //aqui 
+        //if (rab1 == true) {
+
+        //}
         punto2D objp = new punto2D(coordenadaX, coordenadaY);
 
         System.out.println("Punto " + objp.toString());
@@ -122,31 +129,30 @@ public class FXMLDocumentController implements Initializable {
 
         JFrame jFrame = new JFrame();
         JOptionPane.showMessageDialog(jFrame, "AYUDA \n"
-                + "1.Escoja la figura que quiere realizar \n"
+                + "1.Escoja la figura que quiere realizar. \n"
                 + "2.Escoja el color de relleno de la figura \n"
-                + "3.De ser una figura con contorno, escoja el relleno del contorno \n"
-                + "4.Haga clic en el lienzo en el lugar donde quiere que se dibuje la figura \n"
-                + "5.Haga clic en X para guardar, escoja su carpeta de preferencia \n"
-                + "6.Haga clic en X para recuperar un archivo guardado");
+                + "3.De ser una figura con contorno, escoja el relleno del contorno. \n"
+                + "4.Haga clic en el lienzo en el lugar donde quiere que se dibuje la figura. \n"
+                + "5.Haga clic en -Guardar- para guardar, escoja su carpeta de preferencia. \n"
+                + "6.Haga clic en -Recuperar-  para recuperar un archivo guardado.");
 
     }
-    
-    private void estrella5puntas(){
-        
+
+    private void estrella5puntas() {
+
     }
-    
-    private void estrella6puntas(){
-        
+
+    private void estrella6puntas() {
+
     }
-    
-    private void hexagono(){
-        RadioButton hexa = (RadioButton) tgFigura.getSelectedToggle(); 
-        
+
+    private void hexagono() {
+        RadioButton hexa = (RadioButton) tgFigura.getSelectedToggle();
+
         x = new double[6];
         y = new double[6];
 
-        listap = new LinkedList<
-        >();
+        listap = new LinkedList<>();
         x[0] = (coordenadaX + r);
         y[0] = coordenadaY;
         x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
@@ -161,20 +167,27 @@ public class FXMLDocumentController implements Initializable {
         y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
         g.setStroke(Color.BLUE);
         g.setLineWidth(3);
-        g.strokePolygon(x, y, 6);   
-        
+        g.strokePolygon(x, y, 6);
+        for (int i = 0; i < x.length; i++) {
+
+            listap.add(new punto2D(x[i], y[i]));
+            contadorH = contadorH + 1;
+        }
+
+        mapaEjemplo.put("Hexagono" + contadorH, listap);
+
     }
-    
-    private void heptagono(){
-        
+
+    private void heptagono() {
+
     }
-    
-    private void octagono(){
-        
+
+    private void octagono() {
+
     }
-    
-    private void decagono(){
-        
+
+    private void decagono() {
+
     }
 
     @Override
@@ -184,11 +197,12 @@ public class FXMLDocumentController implements Initializable {
 //        filechooser.setInitialDirectory(new File(pathname "C:\\temp"));
         g = lienzo.getGraphicsContext2D();
         r = 100;
+        contadorH=0;
+        contadorP=0;  
         mapaEjemplo = new HashMap<>();
         double w = lienzo.getWidth();
         double h = lienzo.getHeight();
-        
-        
+
     }
 
 }
