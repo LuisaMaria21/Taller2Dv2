@@ -55,6 +55,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private Label labelRelleno;
+    
+    @FXML
+    private Label labelTamaño;
 
     @FXML
     private ColorPicker colorContorno;
@@ -79,7 +82,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void edit(ActionEvent event) {
+    private void open(ActionEvent event) {
 
     }
 

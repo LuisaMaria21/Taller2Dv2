@@ -9,15 +9,23 @@
 
 <AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControlGUI.FXMLDocumentController">
     <children>
-        <Button layoutX="39.0" layoutY="47.0" onAction="#file" text="File" />
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+        <Button layoutX="34.0" layoutY="17.0" onAction="#file" text="Guardar" />
+        <Label fx:id="labelTamaño" layoutX="287.0" layoutY="97.0" minHeight="16" minWidth="69" text="Tamaño Figura" />
       <Canvas fx:id="lienzo" height="484.0" layoutX="-1.0" layoutY="139.0" width="980.0" />
-      <Button layoutX="104.0" layoutY="47.0" onAction="#edit" text="Edit" />
-      <Button layoutX="173.0" layoutY="47.0" onAction="#help" text="Help" />
-      <ComboBox layoutX="370.0" layoutY="47.0" onAction="#comboFigura" prefWidth="150.0" promptText="Selecciona la figura" />
-      <ColorPicker fx:id="colorContorno" layoutX="640.0" layoutY="47.0" />
-      <ColorPicker fx:id="colorRelleno" layoutX="794.0" layoutY="47.0" />
-      <Label fx:id="labelContorno" layoutX="640.0" layoutY="21.0" text="Contorno:" />
-      <Label fx:id="labelRelleno" layoutX="794.0" layoutY="21.0" text="Relleno:" />
+      <Button layoutX="85.0" layoutY="72.0" onAction="#help" text="Ayuda" />
+      <ColorPicker fx:id="colorContorno" layoutX="681.0" layoutY="85.0" />
+      <ColorPicker fx:id="colorRelleno" layoutX="836.0" layoutY="85.0" />
+      <Label fx:id="labelContorno" layoutX="681.0" layoutY="60.0" text="Color contorno:" />
+      <Label fx:id="labelRelleno" layoutX="837.0" layoutY="59.0" text="Color relleno:" />
+      <RadioButton layoutX="249.0" layoutY="21.0" mnemonicParsing="false" text="Estrella 5 puntas " />
+      <Button layoutX="114.0" layoutY="17.0" onAction="#open" text="Recuperar" />
+      <RadioButton layoutX="249.0" layoutY="51.0" mnemonicParsing="false" text="Estrella 6 puntas " />
+      <RadioButton layoutX="392.0" layoutY="21.0" mnemonicParsing="false" text="Hexágono" />
+      <RadioButton layoutX="391.0" layoutY="51.0" mnemonicParsing="false" text="Heptágono" />
+      <RadioButton layoutX="505.0" layoutY="21.0" mnemonicParsing="false" text="Octágono" />
+      <RadioButton layoutX="504.0" layoutY="51.0" mnemonicParsing="false" text="Decágono" />
+      <RadioButton layoutX="681.0" layoutY="21.0" mnemonicParsing="false" text="Contorno" />
+      <RadioButton layoutX="837.0" layoutY="21.0" mnemonicParsing="false" text="Relleno" />
+      <Slider layoutX="391.0" layoutY="99.0" />
     </children>
 </AnchorPane>
