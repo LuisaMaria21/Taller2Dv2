@@ -15,6 +15,30 @@ public class FigurasGeometricas {
     private String nombreFigura;
     private double grosorLinea; 
     private Color colorLinea; 
+
+    public String getNombreFigura() {
+        return nombreFigura;
+    }
+
+    public void setNombreFigura(String nombreFigura) {
+        this.nombreFigura = nombreFigura;
+    }
+
+    public double getGrosorLinea() {
+        return grosorLinea;
+    }
+
+    public void setGrosorLinea(double grosorLinea) {
+        this.grosorLinea = grosorLinea;
+    }
+
+    public Color getColorLinea() {
+        return colorLinea;
+    }
+
+    public void setColorLinea(Color colorLinea) {
+        this.colorLinea = colorLinea;
+    }
     
 
     /**
@@ -22,16 +46,5 @@ public class FigurasGeometricas {
      *
      * @return the value of nombreFigura
      */
-    public String getNombreFigura() {
-        return nombreFigura;
-    }
-
-    /**
-     * Set the value of nombreFigura
-     *
-     * @param nombreFigura new value of nombreFigura
-     */
-    public void setNombreFigura(String nombreFigura) {
-        this.nombreFigura = nombreFigura;
-    }
+    
 }

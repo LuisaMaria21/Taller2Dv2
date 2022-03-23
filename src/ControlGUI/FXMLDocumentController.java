@@ -20,6 +20,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 import javax.swing.JFrame;
@@ -39,7 +40,8 @@ public class FXMLDocumentController implements Initializable {
 
     double[] x;
     double[] y;
-    
+    double r;
+
     LinkedList<punto2D> listap;
     HashMap<String, LinkedList<punto2D>> mapaEjemplo;
 
@@ -90,15 +92,43 @@ public class FXMLDocumentController implements Initializable {
         comboFigura.getItems().addAll("Estrella 5 puntas", "Estrella 6 puntas",
                 "Hexagono", "Heptagono", "Octagono", "Decagono", "Pac-man",
                 "Trazo curva");
-        
-        
+
+        String figura = (String) comboFigura.getValue();
+        if (figura.equals("Estrella 5 puntas")) {
+
+        } else if (figura.equals("Estrella 6 puntas")) {
+
+        } else if (figura.equals("Hexagono")) {
+            x = new double[6];
+            y = new double[6];
+
+            listap = new LinkedList<>();
+            x[0] = (coordenadaX + r);
+            y[0] = coordenadaY;
+            x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
+            y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 6));
+            x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 6));
+            y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 6));
+            x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 6));
+            y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 6));
+            x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 6));
+            y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
+            x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
+            y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
+            g.setStroke(Color.BLUE);
+            g.setLineWidth(3);
+            g.strokePolygon(x, y, 6);
+        }
+
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         // TODO
 //        filechooser.setInitialDirectory(new File(pathname "C:\\temp"));
         g = lienzo.getGraphicsContext2D();
+        r = 100;
         mapaEjemplo = new HashMap<>();
         double w = lienzo.getWidth();
         double h = lienzo.getHeight();
