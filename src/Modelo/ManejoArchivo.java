@@ -12,11 +12,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import org.jdom2.Document;
-import org.jdom2.Element;
 import org.jdom2.output.Format;
 import org.jdom2.output.XMLOutputter;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
+import org.jdom2.Element;
 
 /**
  *
@@ -67,6 +67,16 @@ public class ManejoArchivo {
         return t;
 
     }
+    
+//    public static HashMap cargar(String ruta){
+//        HashMap Mp= new HashMap();
+//        
+//        try {
+//            File File= new File(ruta +"figurasG.xml");
+//            
+//        } catch (Exception e) {
+//        }
+//    }
 
     public static String direccion() {
 

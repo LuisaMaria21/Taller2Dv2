@@ -5,6 +5,7 @@
  */
 package ControlGUI;
 
+import Modelo.ManejoArchivo;
 import Modelo.punto2D;
 import java.io.File;
 import java.net.URL;
@@ -78,7 +79,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void file(ActionEvent event) {
-//        Window stage=
+//       
+        String ruta= ManejoArchivo.direccion();
+        boolean t = ManejoArchivo.guardarArchivoXML(mapaEjemplo, ruta);
+        if (t == true) {
+            System.out.println("Guardo con exito");
+        } else {
+            System.out.println("No Guardo");
+        }
     }
 
     @FXML
