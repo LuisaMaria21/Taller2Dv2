@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -97,10 +99,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void comboFigura(ActionEvent event) {
+        ObservableList<String> figuras = FXCollections.observableArrayList();
         ComboBox comboFigura = new ComboBox();
         comboFigura.getItems().addAll("Estrella 5 puntas", "Estrella 6 puntas",
                 "Hexagono", "Heptagono", "Octagono", "Decagono", "Pac-man",
                 "Trazo curva");
+        ComboBox<String> cbx = new ComboBox<>(figuras);
 
 //        String figura = (String) comboFigura.getValue();
 //        if (figura.equals("Estrella 5 puntas")) {
