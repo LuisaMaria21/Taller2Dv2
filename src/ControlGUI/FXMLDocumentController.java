@@ -84,6 +84,15 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void help(ActionEvent event) {
 
+        JFrame jFrame = new JFrame();
+        JOptionPane.showMessageDialog(jFrame, "AYUDA \n"
+                + "1.Escoja la figura que quiere realizar \n"
+                + "2.Escoja el color de relleno de la figura \n"
+                + "3.De ser una figura con contorno, escoja el relleno del contorno \n"               
+                + "4.Haga clic en el lienzo en el lugar donde quiere que se dibuje la figura \n"
+                + "5.Haga clic en X para guardar, escoja su carpeta de preferencia \n"
+                + "6.Haga clic en X para recuperar un archivo guardado"); 
+
     }
 
     @FXML
@@ -93,32 +102,32 @@ public class FXMLDocumentController implements Initializable {
                 "Hexagono", "Heptagono", "Octagono", "Decagono", "Pac-man",
                 "Trazo curva");
 
-        String figura = (String) comboFigura.getValue();
-        if (figura.equals("Estrella 5 puntas")) {
-
-        } else if (figura.equals("Estrella 6 puntas")) {
-
-        } else if (figura.equals("Hexagono")) {
-            x = new double[6];
-            y = new double[6];
-
-            listap = new LinkedList<>();
-            x[0] = (coordenadaX + r);
-            y[0] = coordenadaY;
-            x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
-            y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 6));
-            x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 6));
-            y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 6));
-            x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 6));
-            y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 6));
-            x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 6));
-            y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
-            x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
-            y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
-            g.setStroke(Color.BLUE);
-            g.setLineWidth(3);
-            g.strokePolygon(x, y, 6);
-        }
+//        String figura = (String) comboFigura.getValue();
+//        if (figura.equals("Estrella 5 puntas")) {
+//
+//        } else if (figura.equals("Estrella 6 puntas")) {
+//
+//        } else if (figura.equals("Hexagono")) {
+//            x = new double[6];
+//            y = new double[6];
+//
+//            listap = new LinkedList<>();
+//            x[0] = (coordenadaX + r);
+//            y[0] = coordenadaY;
+//            x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
+//            y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 6));
+//            x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 6));
+//            y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 6));
+//            x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 6));
+//            y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 6));
+//            x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 6));
+//            y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
+//            x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
+//            y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
+//            g.setStroke(Color.BLUE);
+//            g.setLineWidth(3);
+//            g.strokePolygon(x, y, 6);
+//        }
 
     }
 
