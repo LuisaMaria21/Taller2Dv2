@@ -14,7 +14,7 @@
       <Canvas fx:id="lienzo" height="484.0" layoutX="-1.0" layoutY="139.0" width="980.0" />
       <Button layoutX="104.0" layoutY="47.0" onAction="#edit" text="Edit" />
       <Button layoutX="173.0" layoutY="47.0" onAction="#help" text="Help" />
-      <ComboBox fx:id="comboFigura" layoutX="370.0" layoutY="47.0" prefWidth="150.0" promptText="Selecciona la figura" />
+      <ComboBox layoutX="370.0" layoutY="47.0" onAction="#comboFigura" prefWidth="150.0" promptText="Selecciona la figura" />
       <ColorPicker fx:id="colorContorno" layoutX="640.0" layoutY="47.0" />
       <ColorPicker fx:id="colorRelleno" layoutX="794.0" layoutY="47.0" />
       <Label fx:id="labelContorno" layoutX="640.0" layoutY="21.0" text="Contorno:" />
