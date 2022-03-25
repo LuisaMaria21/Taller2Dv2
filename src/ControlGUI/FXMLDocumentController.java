@@ -119,6 +119,14 @@ public class FXMLDocumentController implements Initializable {
 
         boolean decagon = deca.isSelected();
         System.out.println(decagon);
+        
+        boolean stroke = contorno.isSelected();
+        System.out.println(stroke);
+        
+        boolean fill = relleno.isSelected();
+        System.out.println(fill); 
+        
+        
 
         if (star1 == true) {
 
@@ -142,7 +150,10 @@ public class FXMLDocumentController implements Initializable {
             x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
             y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
             
-            g.setStroke(Color.BLUE);
+            if (stroke==true) {
+              //  g.setStroke(ColorPicker.colorContorno);     
+            }
+            
             g.setLineWidth(3);
             g.strokePolygon(x, y, 6);
             for (int i = 0; i < x.length; i++) {
