@@ -17,6 +17,7 @@ import org.jdom2.output.XMLOutputter;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileSystemView;
 import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 
 /**
  *
@@ -68,15 +69,24 @@ public class ManejoArchivo {
 
     }
     
-//    public static HashMap cargar(String ruta){
-//        HashMap Mp= new HashMap();
-//        
-//        try {
-//            File File= new File(ruta +"figurasG.xml");
-//            
-//        } catch (Exception e) {
-//        }
-//    }
+    public static HashMap cargar(String ruta){
+        HashMap Mp= new HashMap();
+        
+        try {
+            File File= new File(ruta +"figurasG.xml");
+            SAXBuilder saxBuilder = new SAXBuilder();
+            Document document = saxBuilder.build(File); 
+            System.out.println("Root element :" + document.getRootElement().getName());
+            Element classElement = document.getRootElement();
+            
+            
+            
+        } catch (Exception e) {
+            System.out.println("Error " + e.toString());
+        }
+        
+        return Mp;
+    }
 
     public static String direccion() {
 
