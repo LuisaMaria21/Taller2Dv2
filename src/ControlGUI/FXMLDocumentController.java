@@ -22,6 +22,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.FillRule;
 import javafx.stage.FileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -92,7 +93,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private ToggleGroup tgFigura;
-    
+
     @FXML
     private void obtenerCoordenadas(MouseEvent event) {
         coordenadaX = event.getX();
@@ -119,14 +120,12 @@ public class FXMLDocumentController implements Initializable {
 
         boolean decagon = deca.isSelected();
         System.out.println(decagon);
-        
+
         boolean stroke = contorno.isSelected();
         System.out.println(stroke);
-        
+
         boolean fill = relleno.isSelected();
-        System.out.println(fill); 
-        
-        
+        System.out.println(fill);
 
         if (star1 == true) {
 
@@ -149,16 +148,26 @@ public class FXMLDocumentController implements Initializable {
             y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
             x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
             y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
-            
-            if (stroke==true) {
-              //  g.setStroke(ColorPicker.colorContorno);     
-            }
-            
+
             g.setLineWidth(3);
-            g.strokePolygon(x, y, 6);
+
+            if (stroke == true && fill == true) {
+                g.setStroke(colorContorno.getValue());
+                System.out.println("aqui");
+                g.setFill(colorRelleno.getValue());
+                g.fillPolygon(x, y, 6);
+            } else if (stroke == true) {
+
+                g.setStroke(colorContorno.getValue());
+                g.strokePolygon(x, y, 6);               
+
+            }
+
+            
+            
             for (int i = 0; i < x.length; i++) {
 
-                listap.add(new punto2D(x[i], y[i]));
+                //listap.add(new punto2D(x[i], y[i]));
                 contadorH = contadorH + 1;
             }
 
@@ -198,8 +207,6 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
- 
-
     @Override
     public void initialize(URL url, ResourceBundle rb
     ) {
@@ -212,7 +219,7 @@ public class FXMLDocumentController implements Initializable {
         mapaEjemplo = new HashMap<>();
         double w = lienzo.getWidth();
         double h = lienzo.getHeight();
-        
+
         g.setStroke(Color.DARKCYAN);
         g.setLineWidth(3);
         g.strokeRect(0, 0, w, h);
