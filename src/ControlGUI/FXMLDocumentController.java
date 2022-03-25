@@ -41,9 +41,9 @@ public class FXMLDocumentController implements Initializable {
     double[] x;
     double[] y;
     double r;
-    
+
     int contadorH;
-    int contadorP; 
+    int contadorP;
 
     LinkedList<punto2D> listap;
     HashMap<String, LinkedList<punto2D>> mapaEjemplo;
@@ -92,18 +92,67 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private ToggleGroup tgFigura;
-
+    
+    @FXML
     private void obtenerCoordenadas(MouseEvent event) {
         coordenadaX = event.getX();
         coordenadaY = event.getY();
 
-        //aqui 
-        //if (rab1 == true) {
-
-        //}
         punto2D objp = new punto2D(coordenadaX, coordenadaY);
 
         System.out.println("Punto " + objp.toString());
+
+        boolean star1 = estrella1.isSelected();
+        System.out.println(star1);
+
+        boolean star2 = estrella2.isSelected();
+        System.out.println(star2);
+
+        boolean hexagon = hexa.isSelected();
+        System.out.println(hexagon);
+
+        boolean heptagon = hepta.isSelected();
+        System.out.println(heptagon);
+
+        boolean octagon = octa.isSelected();
+        System.out.println(octagon);
+
+        boolean decagon = deca.isSelected();
+        System.out.println(decagon);
+
+        if (star1 == true) {
+
+        } else if (star2 == true) {
+
+        } else if (hexagon == true) {
+            x = new double[6];
+            y = new double[6];
+
+            listap = new LinkedList<>();
+            x[0] = (coordenadaX + r);
+            y[0] = coordenadaY;
+            x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
+            y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 6));
+            x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 6));
+            y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 6));
+            x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 6));
+            y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 6));
+            x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 6));
+            y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
+            x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
+            y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
+            
+            g.setStroke(Color.BLUE);
+            g.setLineWidth(3);
+            g.strokePolygon(x, y, 6);
+            for (int i = 0; i < x.length; i++) {
+
+                listap.add(new punto2D(x[i], y[i]));
+                contadorH = contadorH + 1;
+            }
+
+            mapaEjemplo.put("Hexagono" + contadorH, listap);
+        }
 
     }
 
@@ -138,57 +187,7 @@ public class FXMLDocumentController implements Initializable {
 
     }
 
-    private void estrella5puntas() {
-
-    }
-
-    private void estrella6puntas() {
-
-    }
-
-    private void hexagono() {
-        RadioButton hexa = (RadioButton) tgFigura.getSelectedToggle();
-
-        x = new double[6];
-        y = new double[6];
-
-        listap = new LinkedList<>();
-        x[0] = (coordenadaX + r);
-        y[0] = coordenadaY;
-        x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 6));
-        y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 6));
-        x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 6));
-        y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 6));
-        x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 6));
-        y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 6));
-        x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 6));
-        y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
-        x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
-        y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
-        g.setStroke(Color.BLUE);
-        g.setLineWidth(3);
-        g.strokePolygon(x, y, 6);
-        for (int i = 0; i < x.length; i++) {
-
-            listap.add(new punto2D(x[i], y[i]));
-            contadorH = contadorH + 1;
-        }
-
-        mapaEjemplo.put("Hexagono" + contadorH, listap);
-
-    }
-
-    private void heptagono() {
-
-    }
-
-    private void octagono() {
-
-    }
-
-    private void decagono() {
-
-    }
+ 
 
     @Override
     public void initialize(URL url, ResourceBundle rb
@@ -197,11 +196,15 @@ public class FXMLDocumentController implements Initializable {
 //        filechooser.setInitialDirectory(new File(pathname "C:\\temp"));
         g = lienzo.getGraphicsContext2D();
         r = 100;
-        contadorH=0;
-        contadorP=0;  
+        contadorH = 0;
+        contadorP = 0;
         mapaEjemplo = new HashMap<>();
         double w = lienzo.getWidth();
         double h = lienzo.getHeight();
+        
+        g.setStroke(Color.DARKCYAN);
+        g.setLineWidth(3);
+        g.strokeRect(0, 0, w, h);
 
     }
 
