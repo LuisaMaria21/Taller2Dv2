@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import javafx.scene.paint.Color;
+
 /**
  *
  * @author juan_fernando.aldana
@@ -13,11 +15,18 @@ public class punto2D {
     
  private double X;
     private double Y;
+    
+    private Color r;
+    private Color b;
 
-    public punto2D(double X, double Y) {
+    public punto2D(double X, double Y, Color r, Color b) {
         this.X = X;
         this.Y = Y;
+        this.r = r;
+        this.b = b;
     }
+    
+   
 
     public punto2D() {
     }
@@ -58,6 +67,22 @@ public class punto2D {
      */
     public void setX(double X) {
         this.X = X;
+    }
+
+    public Color getR() {
+        return r;
+    }
+
+    public void setR(Color r) {
+        this.r = r;
+    }
+
+    public Color getB() {
+        return b;
+    }
+
+    public void setB(Color b) {
+        this.b = b;
     }
 
     @Override
