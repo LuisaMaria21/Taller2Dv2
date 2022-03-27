@@ -19,9 +19,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcType;
 import javafx.scene.shape.FillRule;
 import javafx.stage.FileChooser;
 import javax.swing.JFrame;
@@ -45,8 +47,8 @@ public class FXMLDocumentController implements Initializable {
 
     int contadorHexa;
     int contadorhep;
-    int contadoroct; 
-    int contadordeca; 
+    int contadoroct;
+    int contadordeca;
 
     LinkedList<punto2D> listap;
     HashMap<String, LinkedList<punto2D>> mapaEjemplo;
@@ -97,13 +99,19 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton curva;
 
     @FXML
-    private ToggleGroup tgFigura;
-
-    @FXML
     private RadioButton contorno;
 
     @FXML
     private RadioButton relleno;
+
+    @FXML
+    private ToggleGroup tgFigura;
+
+    @FXML
+    private Slider sliderTamaño;
+
+    @FXML
+    private Slider sliderContorno;
 
     @FXML
     private void obtenerCoordenadas(MouseEvent event) {
@@ -121,6 +129,7 @@ public class FXMLDocumentController implements Initializable {
         } else if (hexa.isSelected() == true) {
             x = new double[6];
             y = new double[6];
+            r = sliderTamaño.getValue();
 
             listap = new LinkedList<>();
             x[0] = (coordenadaX + r);
@@ -135,17 +144,17 @@ public class FXMLDocumentController implements Initializable {
             y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 6));
             x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 6));
             y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 6));
-//falta editar para que puedan escoger el tamaño del contorno 
-            g.setLineWidth(3);
 
             if (contorno.isSelected() == true && relleno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
                 g.setFill(colorRelleno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.strokePolygon(x, y, 6);
                 g.fillPolygon(x, y, 6);
 
             } else if (contorno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.strokePolygon(x, y, 6);
 
             } else if (relleno.isSelected() == true) {
@@ -163,6 +172,7 @@ public class FXMLDocumentController implements Initializable {
         } else if (hepta.isSelected() == true) {
             x = new double[7];
             y = new double[7];
+            r = sliderTamaño.getValue();
 
             listap = new LinkedList<>();
 
@@ -181,16 +191,16 @@ public class FXMLDocumentController implements Initializable {
             x[6] = coordenadaX + (r * Math.cos(6 * 2 * Math.PI / 7));
             y[6] = coordenadaY - (r * Math.sin(6 * 2 * Math.PI / 7));
 
-            g.setLineWidth(3);
-
             if (contorno.isSelected() == true && relleno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
                 g.setFill(colorRelleno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.strokePolygon(x, y, 7);
                 g.fillPolygon(x, y, 7);
 
             } else if (contorno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.strokePolygon(x, y, 7);
 
             } else if (relleno.isSelected() == true) {
@@ -209,6 +219,7 @@ public class FXMLDocumentController implements Initializable {
         } else if (octa.isSelected() == true) {
             x = new double[8];
             y = new double[8];
+            r = sliderTamaño.getValue();
 
             listap = new LinkedList<>();
 
@@ -229,16 +240,16 @@ public class FXMLDocumentController implements Initializable {
             x[7] = coordenadaX + (r * Math.cos(7 * 2 * Math.PI / 8));
             y[7] = coordenadaY - (r * Math.sin(7 * 2 * Math.PI / 8));
 
-            g.setLineWidth(3);
-
             if (contorno.isSelected() == true && relleno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.setFill(colorRelleno.getValue());
                 g.strokePolygon(x, y, 8);
                 g.fillPolygon(x, y, 8);
 
             } else if (contorno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.strokePolygon(x, y, 8);
 
             } else if (relleno.isSelected() == true) {
@@ -257,6 +268,7 @@ public class FXMLDocumentController implements Initializable {
         } else if (deca.isSelected() == true) {
             x = new double[10];
             y = new double[10];
+            r = sliderTamaño.getValue();
 
             listap = new LinkedList<>();
 
@@ -281,16 +293,16 @@ public class FXMLDocumentController implements Initializable {
             x[9] = coordenadaX + (r * Math.cos(9 * 2 * Math.PI / 10));
             y[9] = coordenadaY - (r * Math.sin(9 * 2 * Math.PI / 10));
 
-            g.setLineWidth(3);
-
             if (contorno.isSelected() == true && relleno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
                 g.setFill(colorRelleno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.strokePolygon(x, y, 10);
                 g.fillPolygon(x, y, 10);
 
             } else if (contorno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
                 g.strokePolygon(x, y, 10);
 
             } else if (relleno.isSelected() == true) {
@@ -307,6 +319,33 @@ public class FXMLDocumentController implements Initializable {
             mapaEjemplo.put("Decagono" + contadordeca, listap);
 
         } else if (pacman.isSelected() == true) {
+            r = sliderTamaño.getValue();
+
+            if (contorno.isSelected() == true && relleno.isSelected() == true) {
+                g.setStroke(colorContorno.getValue());
+                g.setFill(colorRelleno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
+                g.strokeOval(coordenadaX, coordenadaY, r, r);
+                g.fillOval(coordenadaX, coordenadaY, r, r);
+                g.setLineWidth(sliderContorno.getValue());
+                g.strokeArc(coordenadaX, coordenadaY, r, r, 330, 60, ArcType.ROUND);
+                g.setFill(Color.rgb(247, 247, 247)); 
+                g.fillArc(coordenadaX+2, coordenadaY, r+4, r, 330, 60, ArcType.ROUND);
+
+            } else if (contorno.isSelected() == true) {
+                g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
+                g.strokeOval(coordenadaX, coordenadaY, r, r);
+                g.strokeArc(coordenadaX, coordenadaY, r, r, 330, 60, ArcType.ROUND);
+                g.setFill(Color.rgb(247, 247, 247)); 
+                g.fillArc(coordenadaX+2, coordenadaY, r+4, r , 330, 60, ArcType.ROUND);
+
+            } else if (relleno.isSelected() == true) {
+                g.setFill(colorRelleno.getValue());
+                g.fillOval(coordenadaX, coordenadaY, r, r);
+                g.setFill(Color.rgb(247, 247, 247)); 
+                g.fillArc(coordenadaX+2, coordenadaY, r+4, r, 330, 60, ArcType.ROUND);
+            }
 
         } else if (curva.isSelected() == true) {
 
@@ -351,11 +390,12 @@ public class FXMLDocumentController implements Initializable {
         // TODO
 //        filechooser.setInitialDirectory(new File(pathname "C:\\temp"));
         g = lienzo.getGraphicsContext2D();
-        r = 100;
+        r = 0;
         contadorHexa = 0;
         contadorhep = 0;
-        contadoroct=0; 
-        contadordeca=0; 
+        contadoroct = 0;
+        contadordeca = 0;
+
         mapaEjemplo = new HashMap<>();
         double w = lienzo.getWidth();
         double h = lienzo.getHeight();

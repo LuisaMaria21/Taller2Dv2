@@ -30,10 +30,10 @@
       <RadioButton fx:id="deca" layoutX="474.0" layoutY="49.0" mnemonicParsing="false" text="Decágono" toggleGroup="$tgFigura" />
       <RadioButton fx:id="contorno" layoutX="737.0" layoutY="20.0" mnemonicParsing="false" text="Contorno" />
       <RadioButton fx:id="relleno" layoutX="856.0" layoutY="19.0" mnemonicParsing="false" text="Relleno" />
-      <Slider layoutX="290.0" layoutY="94.0" />
+      <Slider fx:id="sliderTamaño" layoutX="290.0" layoutY="94.0" majorTickUnit="10.0" max="200.0" />
       <RadioButton fx:id="pacman" layoutX="580.0" layoutY="16.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="68.0" text="Pac-Man" toggleGroup="$tgFigura" />
       <RadioButton fx:id="curva" layoutX="580.0" layoutY="49.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="98.0" text="Línea Curva" toggleGroup="$tgFigura" />
-      <Slider layoutX="559.0" layoutY="95.0" />
+      <Slider fx:id="sliderContorno" blockIncrement="1.0" layoutX="559.0" layoutY="95.0" max="10.0" min="3.0" />
       <Label fx:id="labelTamañoC" layoutX="455.0" layoutY="93.0" minHeight="16" minWidth="69" text="Tamaño Contorno" />
     </children>
 </AnchorPane>
