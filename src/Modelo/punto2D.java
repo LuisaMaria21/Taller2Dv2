@@ -5,32 +5,29 @@
  */
 package Modelo;
 
-import javafx.scene.paint.Color;
+//import javafx.scene.paint.Color;
 
 /**
  *
  * @author juan_fernando.aldana
  */
 public class punto2D {
-    
- private double X;
-    private double Y;
-    
-    private Color r;
-    private Color b;
 
-    public punto2D(double X, double Y, Color r, Color b) {
+    private double X;
+    private double Y;
+
+//    private Color r;
+//    private Color b;
+
+    public punto2D(double X, double Y/*, Color r, Color b*/ ) {
         this.X = X;
         this.Y = Y;
-        this.r = r;
-        this.b = b;
+//        this.r = r;
+//        this.b = b;
     }
-    
-   
 
     public punto2D() {
     }
-    
 
     /**
      * Get the value of Y
@@ -50,7 +47,6 @@ public class punto2D {
         this.Y = Y;
     }
 
-
     /**
      * Get the value of X
      *
@@ -69,25 +65,25 @@ public class punto2D {
         this.X = X;
     }
 
-    public Color getR() {
-        return r;
-    }
-
-    public void setR(Color r) {
-        this.r = r;
-    }
-
-    public Color getB() {
-        return b;
-    }
-
-    public void setB(Color b) {
-        this.b = b;
-    }
+//    public Color getR() {
+//        return r;
+//    }
+//
+//    public void setR(Color r) {
+//        this.r = r;
+//    }
+//
+//    public Color getB() {
+//        return b;
+//    }
+//
+//    public void setB(Color b) {
+//        this.b = b;
+//    }
 
     @Override
     public String toString() {
-        return  X + "," + Y;
+        return X + "," + Y;
     }
 
 }

@@ -9,27 +9,31 @@
 
 <AnchorPane id="AnchorPane" prefHeight="623.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControlGUI.FXMLDocumentController">
     <children>
-        <Button layoutX="34.0" layoutY="17.0" onAction="#file" text="Guardar" />
-        <Label fx:id="labelTamaño" layoutX="287.0" layoutY="97.0" minHeight="16" minWidth="69" text="Tamaño Figura" />
+        <Button layoutX="28.0" layoutY="17.0" onAction="#file" text="Guardar" />
+        <Label fx:id="labelTamaño" layoutX="199.0" layoutY="92.0" minHeight="16" minWidth="69" text="Tamaño Figura" />
       <Canvas fx:id="lienzo" height="484.0" layoutX="-1.0" layoutY="139.0" onMouseClicked="#obtenerCoordenadas" width="980.0" />
-      <Button layoutX="85.0" layoutY="72.0" onAction="#help" text="Ayuda" />
-      <ColorPicker fx:id="colorContorno" layoutX="681.0" layoutY="85.0" />
-      <ColorPicker fx:id="colorRelleno" layoutX="836.0" layoutY="85.0" />
-      <Label fx:id="labelContorno" layoutX="681.0" layoutY="60.0" text="Color contorno:" />
-      <Label fx:id="labelRelleno" layoutX="837.0" layoutY="59.0" text="Color relleno:" />
-      <RadioButton fx:id="estrella1" layoutX="249.0" layoutY="21.0" mnemonicParsing="false" text="Estrella 5 puntas ">
+      <Button layoutX="79.0" layoutY="72.0" onAction="#help" text="Ayuda" />
+      <ColorPicker fx:id="colorContorno" layoutX="737.0" layoutY="76.0" />
+      <ColorPicker fx:id="colorRelleno" layoutX="855.0" layoutY="75.0" />
+      <Label fx:id="labelContorno" layoutX="737.0" layoutY="51.0" text="Color contorno:" />
+      <Label fx:id="labelRelleno" layoutX="856.0" layoutY="49.0" text="Color relleno:" />
+      <RadioButton fx:id="estrella1" layoutX="219.0" layoutY="19.0" mnemonicParsing="false" text="Estrella 5 puntas ">
          <toggleGroup>
             <ToggleGroup fx:id="tgFigura" />
          </toggleGroup>
       </RadioButton>
-      <Button layoutX="114.0" layoutY="17.0" onAction="#open" text="Recuperar" />
-      <RadioButton fx:id="estrella2" layoutX="249.0" layoutY="51.0" mnemonicParsing="false" text="Estrella 6 puntas " toggleGroup="$tgFigura" />
-      <RadioButton fx:id="hexa" layoutX="392.0" layoutY="21.0" mnemonicParsing="false" text="Hexágono" toggleGroup="$tgFigura" />
-      <RadioButton fx:id="hepta" layoutX="391.0" layoutY="51.0" mnemonicParsing="false" text="Heptágono" toggleGroup="$tgFigura" />
-      <RadioButton fx:id="octa" layoutX="505.0" layoutY="21.0" mnemonicParsing="false" text="Octágono" toggleGroup="$tgFigura" />
-      <RadioButton fx:id="deca" layoutX="504.0" layoutY="51.0" mnemonicParsing="false" text="Decágono" toggleGroup="$tgFigura" />
-      <RadioButton fx:id="contorno" layoutX="681.0" layoutY="21.0" mnemonicParsing="false" text="Contorno" />
-      <RadioButton fx:id="relleno" layoutX="837.0" layoutY="21.0" mnemonicParsing="false" text="Relleno" />
-      <Slider layoutX="391.0" layoutY="99.0" />
+      <Button layoutX="108.0" layoutY="17.0" onAction="#open" text="Recuperar" />
+      <RadioButton fx:id="estrella2" layoutX="219.0" layoutY="49.0" mnemonicParsing="false" text="Estrella 6 puntas " toggleGroup="$tgFigura" />
+      <RadioButton fx:id="hexa" layoutX="362.0" layoutY="19.0" mnemonicParsing="false" text="Hexágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="hepta" layoutX="361.0" layoutY="49.0" mnemonicParsing="false" text="Heptágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="octa" layoutX="475.0" layoutY="19.0" mnemonicParsing="false" text="Octágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="deca" layoutX="474.0" layoutY="49.0" mnemonicParsing="false" text="Decágono" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="contorno" layoutX="737.0" layoutY="20.0" mnemonicParsing="false" text="Contorno" />
+      <RadioButton fx:id="relleno" layoutX="856.0" layoutY="19.0" mnemonicParsing="false" text="Relleno" />
+      <Slider layoutX="290.0" layoutY="94.0" />
+      <RadioButton fx:id="pacman" layoutX="580.0" layoutY="16.0" mnemonicParsing="false" prefHeight="3.0" prefWidth="68.0" text="Pac-Man" toggleGroup="$tgFigura" />
+      <RadioButton fx:id="curva" layoutX="580.0" layoutY="49.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="98.0" text="Línea Curva" toggleGroup="$tgFigura" />
+      <Slider layoutX="559.0" layoutY="95.0" />
+      <Label fx:id="labelTamañoC" layoutX="455.0" layoutY="93.0" minHeight="16" minWidth="69" text="Tamaño Contorno" />
     </children>
 </AnchorPane>
