@@ -325,26 +325,17 @@ public class FXMLDocumentController implements Initializable {
                 g.setStroke(colorContorno.getValue());
                 g.setFill(colorRelleno.getValue());
                 g.setLineWidth(sliderContorno.getValue());
-                g.strokeOval(coordenadaX, coordenadaY, r, r);
-                g.fillOval(coordenadaX, coordenadaY, r, r);
-                g.setLineWidth(sliderContorno.getValue());
-                g.strokeArc(coordenadaX, coordenadaY, r, r, 330, 60, ArcType.ROUND);
-                g.setFill(Color.rgb(247, 247, 247)); 
-                g.fillArc(coordenadaX+2, coordenadaY, r+4, r, 330, 60, ArcType.ROUND);
+                g.fillArc(coordenadaX + 2, coordenadaY, r, r, 370, 320, ArcType.ROUND);
+                g.strokeArc(coordenadaX, coordenadaY, r, r, 370, 320, ArcType.ROUND);
 
             } else if (contorno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
                 g.setLineWidth(sliderContorno.getValue());
-                g.strokeOval(coordenadaX, coordenadaY, r, r);
-                g.strokeArc(coordenadaX, coordenadaY, r, r, 330, 60, ArcType.ROUND);
-                g.setFill(Color.rgb(247, 247, 247)); 
-                g.fillArc(coordenadaX+2, coordenadaY, r+4, r , 330, 60, ArcType.ROUND);
+                g.strokeArc(coordenadaX, coordenadaY, r, r, 370, 320, ArcType.ROUND);
 
             } else if (relleno.isSelected() == true) {
                 g.setFill(colorRelleno.getValue());
-                g.fillOval(coordenadaX, coordenadaY, r, r);
-                g.setFill(Color.rgb(247, 247, 247)); 
-                g.fillArc(coordenadaX+2, coordenadaY, r+4, r, 330, 60, ArcType.ROUND);
+                g.fillArc(coordenadaX + 2, coordenadaY, r, r, 370, 320, ArcType.ROUND);
             }
 
         } else if (curva.isSelected() == true) {
