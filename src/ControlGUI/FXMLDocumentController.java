@@ -368,10 +368,11 @@ public class FXMLDocumentController implements Initializable {
         JOptionPane.showMessageDialog(jFrame, "AYUDA \n"
                 + "1.Escoja la figura que quiere realizar. \n"
                 + "2.Escoja el color de relleno de la figura \n"
-                + "3.De ser una figura con contorno, escoja el relleno del contorno. \n"
-                + "4.Haga clic en el lienzo en el lugar donde quiere que se dibuje la figura. \n"
-                + "5.Haga clic en -Guardar- para guardar, escoja su carpeta de preferencia. \n"
-                + "6.Haga clic en -Recuperar-  para recuperar un archivo guardado.");
+                + "3.De ser una figura con contorno, escoja el color del contorno. \n"
+                + "4.Escoja el tamaño de la figura y del contorno (de ser necesario).\n"
+                + "5.Haga clic en el lienzo en el lugar donde quiere que se dibuje la figura. \n"
+                + "6.Haga clic en -Guardar- para guardar, escoja su carpeta de preferencia. \n"
+                + "7.Haga clic en -Recuperar-  para recuperar un archivo guardado.");
 
     }
 
