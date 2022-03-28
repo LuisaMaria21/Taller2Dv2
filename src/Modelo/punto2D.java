@@ -19,7 +19,7 @@ public class punto2D {
 //    private Color r;
 //    private Color b;
 
-    public punto2D(double X, double Y/*, Color r, Color b*/ ) {
+    public punto2D(double X, double Y /*, Color r, Color b*/ ) {
         this.X = X;
         this.Y = Y;
 //        this.r = r;

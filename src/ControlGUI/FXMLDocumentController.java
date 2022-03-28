@@ -45,10 +45,13 @@ public class FXMLDocumentController implements Initializable {
     double[] y;
     double r;
 
+    int contadorE1;
+    int contadorE2;
     int contadorHexa;
     int contadorhep;
     int contadoroct;
     int contadordeca;
+    int contadorpacman;
 
     LinkedList<punto2D> listap;
     HashMap<String, LinkedList<punto2D>> mapaEjemplo;
@@ -123,8 +126,110 @@ public class FXMLDocumentController implements Initializable {
         System.out.println("Punto " + objp.toString());
 
         if (estrella1.isSelected() == true) {
+            x = new double[10];
+            y = new double[10];
+            r = sliderTamaño.getValue()/2; 
+
+            listap = new LinkedList<>();
+            x[0] = (coordenadaX + r * 2);
+            y[0] = coordenadaY;
+            x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 10));
+            y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 10));
+            x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 10) * 2);
+            y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 10) * 2);
+            x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 10));
+            y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 10));
+            x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 10) * 2);
+            y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 10) * 2);
+            x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 10));
+            y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 10));
+            x[6] = coordenadaX + (r * Math.cos(6 * 2 * Math.PI / 10) * 2);
+            y[6] = coordenadaY - (r * Math.sin(6 * 2 * Math.PI / 10) * 2);
+            x[7] = coordenadaX + (r * Math.cos(7 * 2 * Math.PI / 10));
+            y[7] = coordenadaY - (r * Math.sin(7 * 2 * Math.PI / 10));
+            x[8] = coordenadaX + (r * Math.cos(8 * 2 * Math.PI / 10) * 2);
+            y[8] = coordenadaY - (r * Math.sin(8 * 2 * Math.PI / 10) * 2);
+            x[9] = coordenadaX + (r * Math.cos(9 * 2 * Math.PI / 10));
+            y[9] = coordenadaY - (r * Math.sin(9 * 2 * Math.PI / 10));
+
+            if (contorno.isSelected() == true && relleno.isSelected() == true) {
+                g.setStroke(colorContorno.getValue());
+                g.setFill(colorRelleno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
+                g.strokePolygon(x, y, 10);
+                g.fillPolygon(x, y, 10);
+
+            } else if (contorno.isSelected() == true) {
+                g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
+                g.strokePolygon(x, y, 10);
+
+            } else if (relleno.isSelected() == true) {
+                g.setFill(colorRelleno.getValue());
+                g.fillPolygon(x, y, 10);
+            }
+
+            for (int i = 0; i < x.length; i++) {
+                listap.add(new punto2D(x[i], y[i]));
+                contadorE1 = contadorE1 + 1;
+            }
+
+            mapaEjemplo.put("Estrella 5 puntas" + contadorE1, listap);
 
         } else if (estrella2.isSelected() == true) {
+            x = new double[12];
+            y = new double[12];
+            r = sliderTamaño.getValue()/2;
+
+            listap = new LinkedList<>();
+            x[0] = (coordenadaX + r * 2);
+            y[0] = coordenadaY;
+            x[1] = coordenadaX + (r * Math.cos(2 * Math.PI / 12));
+            y[1] = coordenadaY - (r * Math.sin(2 * Math.PI / 12));
+            x[2] = coordenadaX + (r * Math.cos(2 * 2 * Math.PI / 12) * 2);
+            y[2] = coordenadaY - (r * Math.sin(2 * 2 * Math.PI / 12) * 2);
+            x[3] = coordenadaX + (r * Math.cos(3 * 2 * Math.PI / 12));
+            y[3] = coordenadaY - (r * Math.sin(3 * 2 * Math.PI / 12));
+            x[4] = coordenadaX + (r * Math.cos(4 * 2 * Math.PI / 12) * 2);
+            y[4] = coordenadaY - (r * Math.sin(4 * 2 * Math.PI / 12) * 2);
+            x[5] = coordenadaX + (r * Math.cos(5 * 2 * Math.PI / 12));
+            y[5] = coordenadaY - (r * Math.sin(5 * 2 * Math.PI / 12));
+            x[6] = coordenadaX + (r * Math.cos(6 * 2 * Math.PI / 12) * 2);
+            y[6] = coordenadaY - (r * Math.sin(6 * 2 * Math.PI / 12) * 2);
+            x[7] = coordenadaX + (r * Math.cos(7 * 2 * Math.PI / 12));
+            y[7] = coordenadaY - (r * Math.sin(7 * 2 * Math.PI / 12));
+            x[8] = coordenadaX + (r * Math.cos(8 * 2 * Math.PI / 12) * 2);
+            y[8] = coordenadaY - (r * Math.sin(8 * 2 * Math.PI / 12) * 2);
+            x[9] = coordenadaX + (r * Math.cos(9 * 2 * Math.PI / 12));
+            y[9] = coordenadaY - (r * Math.sin(9 * 2 * Math.PI / 12));
+            x[10] = coordenadaX + (r * Math.cos(10 * 2 * Math.PI / 12) * 2);
+            y[10] = coordenadaY - (r * Math.sin(10 * 2 * Math.PI / 12)) * 2;
+            x[11] = coordenadaX + (r * Math.cos(11 * 2 * Math.PI / 12));
+            y[11] = coordenadaY - (r * Math.sin(11 * 2 * Math.PI / 12));
+            
+             if (contorno.isSelected() == true && relleno.isSelected() == true) {
+                g.setStroke(colorContorno.getValue());
+                g.setFill(colorRelleno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
+                g.strokePolygon(x, y, 12);
+                g.fillPolygon(x, y, 12);
+
+            } else if (contorno.isSelected() == true) {
+                g.setStroke(colorContorno.getValue());
+                g.setLineWidth(sliderContorno.getValue());
+                g.strokePolygon(x, y, 12);
+
+            } else if (relleno.isSelected() == true) {
+                g.setFill(colorRelleno.getValue());
+                g.fillPolygon(x, y, 12);
+            }
+
+            for (int i = 0; i < x.length; i++) {
+                listap.add(new punto2D(x[i], y[i]));
+                contadorE2 = contadorE2 + 1;
+            }
+
+            mapaEjemplo.put("Estrella 6 puntas" + contadorE2, listap);
 
         } else if (hexa.isSelected() == true) {
             x = new double[6];
@@ -319,7 +424,7 @@ public class FXMLDocumentController implements Initializable {
             mapaEjemplo.put("Decagono" + contadordeca, listap);
 
         } else if (pacman.isSelected() == true) {
-            r = sliderTamaño.getValue();
+            r = sliderTamaño.getValue()*2;
 
             if (contorno.isSelected() == true && relleno.isSelected() == true) {
                 g.setStroke(colorContorno.getValue());
@@ -337,6 +442,14 @@ public class FXMLDocumentController implements Initializable {
                 g.setFill(colorRelleno.getValue());
                 g.fillArc(coordenadaX + 2, coordenadaY, r, r, 370, 320, ArcType.ROUND);
             }
+
+            for (int i = 0; i < x.length; i++) {
+
+                listap.add(new punto2D(x[i], y[i]));
+                contadorpacman = contadorpacman + 1;
+            }
+
+            mapaEjemplo.put("Pac-Man" + contadorpacman, listap);
 
         } else if (curva.isSelected() == true) {
 
@@ -383,10 +496,13 @@ public class FXMLDocumentController implements Initializable {
 //        filechooser.setInitialDirectory(new File(pathname "C:\\temp"));
         g = lienzo.getGraphicsContext2D();
         r = 0;
+        contadorE1 = 0;
+        contadorE2 = 0;
         contadorHexa = 0;
         contadorhep = 0;
         contadoroct = 0;
         contadordeca = 0;
+        contadorpacman = 0;
 
         mapaEjemplo = new HashMap<>();
         double w = lienzo.getWidth();
