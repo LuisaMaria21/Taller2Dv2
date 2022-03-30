@@ -24,10 +24,18 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
+
 /**
- *
- * @author luisa
+ * Clase en la cual se pone en funcionamiento de la interfaz
+ * 
+ ** @author andres_fel.acosta@uao.edu.co Andres Felipe Acosta lozada 2201212
+ * luisa_maria.cuero@uao.edu.co Luisa María Cuero Ampudia 2195064
+ * julieta.lara@uao.edu.co Julieta Lara Romero 2200619
+ * juan_fernando.aldana@uao.edu.co Juan Fernando Aldana 2201173
+ * @date 29 Marzo 2022
+ * @version 1.0
  */
+ 
 public class FXMLDocumentController implements Initializable {
 
     GraphicsContext g;
@@ -82,6 +90,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void obtenerCoordenadas(MouseEvent event) {
+        //Metodo para conseguir las coordenadas y el los condicionantes de los 
+        //colores
         Punto punto = new Punto(event.getX(), event.getY());
 
         Figura figura = new Figura();
@@ -137,6 +147,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
     private void dibujarFigura(Figura figura) {
+        //Metodo para dibujar las diferentes Figuras
         double[] xPoints;
         double[] yPoints;
         if (!figura.getTipo().equals("curva")) {
@@ -413,6 +424,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void guardar(ActionEvent event) {
+        //metodo y boton para guardar el archivo
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         if (jfc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
             File archivoSeleccionado = jfc.getSelectedFile();
@@ -422,6 +434,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void limpiar(ActionEvent event) {
+        //Boton y Metodo para limpiar el canvas 
         double width = g.getCanvas().getWidth();
         double height = g.getCanvas().getHeight();
         g.clearRect(0, 0, width, height);
@@ -433,6 +446,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void open(ActionEvent event) {
+        //Boton y metodo para poder abrir un documento y editarlo
         JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         if (jfc.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             File archivoSeleccionado = jfc.getSelectedFile();
@@ -445,6 +459,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void help(ActionEvent event) {
+        //Metodo y boton para las instrucciones del programa
 
         JFrame jFrame = new JFrame();
         JOptionPane.showMessageDialog(jFrame, "AYUDA \n"

@@ -12,8 +12,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
- * @author luisa
+ * Clase Main de la aplicacion
+ * 
+ ** @author andres_fel.acosta@uao.edu.co Andres Felipe Acosta lozada 2201212
+ * luisa_maria.cuero@uao.edu.co Luisa María Cuero Ampudia 2195064
+ * julieta.lara@uao.edu.co Julieta Lara Romero 2200619
+ * juan_fernando.aldana@uao.edu.co Juan Fernando Aldana 2201173
+ * @date 29 Marzo 2022
+ * @version 1.0
  */
 public class Taller2Dv2 extends Application {
     
